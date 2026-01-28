@@ -72,6 +72,31 @@ export function HeroSection() {
                 <span>Chiama ora</span>
               </Button>
             </div>
+            
+            {/* Reviews Card - Mobile optimized */}
+            <div className="mt-6 md:mt-10 p-3 md:p-5 rounded-2xl bg-gradient-to-br from-[var(--surface)] to-[var(--paper)] border border-[var(--line)] shadow-sm w-full max-w-full overflow-hidden">
+              <div className="flex items-center gap-3 md:gap-4">
+                <div className="relative shrink-0">
+                  <div className="w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-[var(--accent)]/30 bg-[var(--paper)] p-1.5 md:p-2 flex items-center justify-center shadow-md">
+                    <img src="/logo.png" alt="Reviews" className="w-full h-full object-contain" />
+                  </div>
+                  <div className="absolute -bottom-1 -right-1 w-5 h-5 md:w-6 md:h-6 bg-[var(--accent)] rounded-full flex items-center justify-center">
+                    <Star className="w-3 h-3 md:w-3.5 md:h-3.5 text-white fill-white" />
+                  </div>
+                </div>
+                <div className="min-w-0">
+                  <div className="flex items-center gap-1.5 mb-0.5">
+                    <span className="text-[var(--accent)] font-serif font-bold text-xl md:text-2xl italic">4.6</span>
+                    <div className="flex">
+                      {[1,2,3,4,5].map((n) => (
+                        <Star key={n} className="w-3.5 h-3.5 md:w-4 md:h-4 text-[var(--accent)] fill-[var(--accent)]" />
+                      ))}
+                    </div>
+                  </div>
+                  <div className="text-[10px] md:text-[11px] uppercase tracking-wider font-bold opacity-60">Su Google Reviews</div>
+                </div>
+              </div>
+            </div>
           </div>
           <div className="lg:col-span-7 relative overflow-hidden rounded-none md:rounded-[2.5rem] md:card-premium group md:rotate-1 md:hover:rotate-0 transition-all duration-700 order-1 md:order-1 lg:order-2 mb-6 md:mb-8 lg:mb-0 will-change-transform md:ring-1 md:ring-[var(--line)] md:hover:ring-[var(--accent)]/40 md:hover:shadow-2xl md:hover:shadow-[var(--accent)]/10 w-full">
             {salon.heroAvif || salon.heroWebp ? (
