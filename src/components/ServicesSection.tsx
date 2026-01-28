@@ -15,13 +15,60 @@ export function ServicesSection() {
     
     const handleScroll = () => {
       const scrollLeft = scrollContainer.scrollLeft;
-      const cardWidth = 316; // 300px card + 16px gap
-      const index = Math.round(scrollLeft / cardWidth);
-      setActiveIndex(Math.min(index, services.length - 1));
+      const containerWidth = scrollContainer.clientWidth;
+      const scrollWidth = scrollContainer.scrollWidth - containerWidth;
+      
+      // Calcola la percentuale di scroll
+      const scrollPercent = scrollLeft / scrollWidth;
+      
+      // Mappa la percentuale all'indice
+      const index = Math.round(scrollPercent * (services.length - 1));
+      setActiveIndex(Math.max(0, Math.min(index, services.length - 1)));
     };
     
     scrollContainer.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll(); // Calcola subito
     return () => scrollContainer.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Auto-scroll veloce per mobile
+  useEffect(() => {
+    const scrollContainer = scrollRef.current;
+    if (!scrollContainer) return;
+    
+    let autoScrollInterval: NodeJS.Timeout;
+    
+    const startAutoScroll = () => {
+      autoScrollInterval = setInterval(() => {
+        if (!scrollContainer) return;
+        const maxScroll = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+        
+        setActiveIndex((prev) => {
+          const nextIndex = prev >= services.length - 1 ? 0 : prev + 1;
+          const targetScroll = (nextIndex / (services.length - 1)) * maxScroll;
+          
+          scrollContainer.scrollTo({ left: targetScroll, behavior: 'smooth' });
+          return nextIndex;
+        });
+      }, 2000); // Cambia ogni 2 secondi
+    };
+    
+    const startTimeout = setTimeout(startAutoScroll, 2500);
+    
+    const stopAutoScroll = () => {
+      clearInterval(autoScrollInterval);
+      clearTimeout(startTimeout);
+    };
+    
+    scrollContainer.addEventListener('touchstart', stopAutoScroll, { passive: true });
+    scrollContainer.addEventListener('mousedown', stopAutoScroll);
+    
+    return () => {
+      clearInterval(autoScrollInterval);
+      clearTimeout(startTimeout);
+      scrollContainer?.removeEventListener('touchstart', stopAutoScroll);
+      scrollContainer?.removeEventListener('mousedown', stopAutoScroll);
+    };
   }, []);
 
   return (
@@ -144,7 +191,12 @@ export function ServicesSection() {
             <button
               key={i}
               onClick={() => {
-                scrollRef.current?.scrollTo({ left: i * 332, behavior: 'smooth' });
+                const container = scrollRef.current;
+                if (!container) return;
+                const maxScroll = container.scrollWidth - container.clientWidth;
+                const targetScroll = (i / (services.length - 1)) * maxScroll;
+                container.scrollTo({ left: targetScroll, behavior: 'smooth' });
+                setActiveIndex(i);
               }}
               className={`h-1.5 rounded-full transition-all duration-300 ${
                 activeIndex === i 

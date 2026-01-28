@@ -190,7 +190,7 @@ export function HeroSection() {
                 decoding="async"
                 width={1600}
                 height={600}
-                className="h-[280px] sm:h-[350px] md:h-[600px] w-full object-cover object-[50%_42%] transition-transform duration-700 md:group-hover:scale-105"
+                className="h-[340px] sm:h-[400px] md:h-[600px] w-full object-cover object-center transition-transform duration-700 md:group-hover:scale-105"
               />
             )}
             {/* Gradient overlays */}
