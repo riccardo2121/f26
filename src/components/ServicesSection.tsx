@@ -50,7 +50,7 @@ export function ServicesSection() {
           scrollContainer.scrollTo({ left: targetScroll, behavior: 'smooth' });
           return nextIndex;
         });
-      }, 2000); // Cambia ogni 2 secondi
+      }, 4000); // Cambia ogni 4 secondi
     };
     
     const startTimeout = setTimeout(startAutoScroll, 2500);

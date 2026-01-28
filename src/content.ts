@@ -56,9 +56,7 @@ export const salon: Salon = {
   instagram: "https://www.instagram.com/igiarratanoparrucchieri?igsh=NXVqMGt3eXM1eTI5",
   hours: "Mar-Mer: 09:00–12:30, 14:30–18:30\nGio: 09:00–18:30\nVen-Sab: 08:30–18:30\nDom-Lun: Chiuso",
   privacy: "/privacy",
-  heroAvif: "https://images.pexels.com/photos/3993449/pexels-photo-3993449.jpeg?auto=compress&cs=tinysrgb&w=2400&fit=crop&q=90",
-  heroWebp: "https://images.pexels.com/photos/3993449/pexels-photo-3993449.jpeg?auto=compress&cs=tinysrgb&w=2400&fit=crop&q=90",
-  heroJpeg: "https://images.pexels.com/photos/3993449/pexels-photo-3993449.jpeg?auto=compress&cs=tinysrgb&w=2400&fit=crop&q=90",
+  heroJpeg: "https://images.pexels.com/photos/3993449/pexels-photo-3993449.jpeg?auto=compress&cs=tinysrgb&w=1600",
   rating: 4.6
 };
 
