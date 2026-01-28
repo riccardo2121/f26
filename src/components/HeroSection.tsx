@@ -41,7 +41,7 @@ export function HeroSection() {
             <div className="opacity-0 inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 rounded-full bg-gradient-to-r from-[var(--surface)] to-[var(--paper)] border border-[var(--accent)]/20 shadow-sm mb-5 md:mb-8 animate-fade-in group" style={{animationDelay: '0.1s'}}>
               <span className="w-2 h-2 rounded-full bg-[var(--accent)] animate-pulse"/>
               <span className="text-[10px] md:text-[11px] uppercase tracking-[0.15em] font-semibold text-[var(--accent)]">
-                Arte <span className="font-serif italic font-normal lowercase">e</span> Passione dal 2003
+                Arte <span className="font-serif italic font-normal lowercase">e</span> Passione
               </span>
             </div>
             <h1 className="opacity-0 text-[1.75rem] leading-[1.2] sm:text-4xl md:text-6xl lg:text-7xl font-serif font-medium mb-4 md:mb-8 animate-fade-in" style={{animationDelay: '0.2s'}}>
@@ -73,23 +73,6 @@ export function HeroSection() {
               </Button>
             </div>
             
-            {/* Trust badges - mobile scrollable */}
-            <div className="mt-6 md:mt-8 overflow-x-auto scrollbar-hide -mx-1 px-1">
-              <div className="flex items-center gap-2 text-[11px] md:text-xs opacity-70 w-max md:w-auto pb-1">
-                <div className="flex items-center gap-1.5 bg-[var(--surface)] px-2.5 py-1.5 rounded-full border border-[var(--line)] shrink-0">
-                  <Award className="w-3.5 h-3.5 md:w-4 md:h-4 text-[var(--accent)]" />
-                  <span>+20 anni</span>
-                </div>
-                <div className="flex items-center gap-1.5 bg-[var(--surface)] px-2.5 py-1.5 rounded-full border border-[var(--line)] shrink-0">
-                  <MapPin className="w-3.5 h-3.5 md:w-4 md:h-4 text-[var(--accent)]" />
-                  <span>Sant'Ambrogio</span>
-                </div>
-                <div className="flex items-center gap-1.5 bg-[var(--surface)] px-2.5 py-1.5 rounded-full border border-[var(--line)] md:hidden shrink-0">
-                  <Star className="w-3.5 h-3.5 text-[var(--accent)]" />
-                  <span>4.6★</span>
-                </div>
-              </div>
-            </div>
             {/* Reviews Card - Mobile optimized */}
             <div className="mt-6 md:mt-10 p-3 md:p-5 rounded-2xl bg-gradient-to-br from-[var(--surface)] to-[var(--paper)] border border-[var(--line)] shadow-sm w-full max-w-full overflow-hidden">
               <div className="flex items-center gap-3 md:gap-4">

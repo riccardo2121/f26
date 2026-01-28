@@ -64,7 +64,7 @@ export const services: Service[] = [
   { tag: "Donna", title: "Taglio Sartoriale & Styling", desc: "Tagli che esaltano la tua bellezza naturale. Analisi del viso, consulenza personalizzata e finish impeccabile per un look che ti rappresenta davvero." },
   { tag: "Colore", title: "Colorazioni & Schiariture D'Autore", desc: "Dal balayage naturale alle tinte più audaci. Tecniche innovative, prodotti premium e una palette infinita per dare vita al colore dei tuoi sogni." },
   { tag: "Cura", title: "Rituali di Benessere & Rigenerazione", desc: "Trattamenti esclusivi per capelli che splendono di salute. Ricostruzione molecolare, idratazione profonda e rituali personalizzati per una chioma rinata." },
-  { tag: "Uomo", title: "Barberia & Grooming Maschile", desc: "Precisione artigianale per il gentleman moderno. Tagli classici e contemporanei, barba curata nei minimi dettagli, consigli di styling su misura." },
+  { tag: "Uomo", title: "Grooming & Styling Maschile", desc: "Precisione artigianale per il gentleman moderno. Tagli classici e contemporanei, barba curata nei minimi dettagli, consigli di styling su misura." },
   { tag: "Sposa", title: "Sposa & Eventi Speciali", desc: "Il tuo momento, la nostra passione. Acconciature da favola, prove meticolose e assistenza il giorno del grande evento per un look da sogno." },
   { tag: "Prodotti", title: "Consulenza Home Care", desc: "Porta la professionalità del salone a casa tua. Prodotti di eccellenza selezionati e routine personalizzate per mantenere i risultati nel tempo." },
 ];
