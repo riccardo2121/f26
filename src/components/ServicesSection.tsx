@@ -15,19 +15,12 @@ export function ServicesSection() {
     
     const handleScroll = () => {
       const scrollLeft = scrollContainer.scrollLeft;
-      const containerWidth = scrollContainer.offsetWidth;
-      // Calcola la larghezza effettiva della card + gap
-      const firstCard = scrollContainer.querySelector('article');
-      const cardWidth = firstCard ? firstCard.offsetWidth + 12 : 292; // 12px gap
-      
-      // Calcola l'indice basato sulla posizione di scroll
-      const scrollProgress = scrollLeft / (cardWidth * services.length - containerWidth);
-      const index = Math.round(scrollProgress * (services.length - 1));
-      setActiveIndex(Math.max(0, Math.min(index, services.length - 1)));
+      const cardWidth = 316; // 300px card + 16px gap
+      const index = Math.round(scrollLeft / cardWidth);
+      setActiveIndex(Math.min(index, services.length - 1));
     };
     
     scrollContainer.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll(); // Calcola subito
     return () => scrollContainer.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -151,11 +144,7 @@ export function ServicesSection() {
             <button
               key={i}
               onClick={() => {
-                const container = scrollRef.current;
-                if (!container) return;
-                const firstCard = container.querySelector('article');
-                const cardWidth = firstCard ? firstCard.offsetWidth + 12 : 292;
-                container.scrollTo({ left: i * cardWidth, behavior: 'smooth' });
+                scrollRef.current?.scrollTo({ left: i * 332, behavior: 'smooth' });
               }}
               className={`h-1.5 rounded-full transition-all duration-300 ${
                 activeIndex === i 
