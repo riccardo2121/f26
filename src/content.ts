@@ -109,7 +109,7 @@ export const reviews: Review[] = [
 ];
 
 export const team: TeamMember[] = [
-  { name: "Gianni Giarratano", role: "Maestro Parrucchiere", text: "Con oltre 20 anni di esperienza, Gianni trasforma ogni taglio in un'opera d'arte. La sua passione per l'hair design e l'attenzione millimetrica lo rendono il punto di riferimento per chi cerca eccellenza." },
   { name: "Marianna Giarratano", role: "Directrice Creativa", text: "Visionaria del colore e alchimista dei trattamenti. Marianna ha il dono di leggere la personalità di ogni cliente e tradurla in sfumature che illuminano il volto." },
   { name: "Mimma", role: "Senior Stylist & Consulente", text: "Mimma non ascolta solo i tuoi desideri, li anticipa. Con sensibilità artistica e tecnica raffinata, crea esperienze personalizzate che fanno sentire ogni cliente unico." },
+  { name: "Caterina", role: "Accoglienza & Appuntamenti", text: "Il primo sorriso che incontri quando entri. Caterina gestisce gli appuntamenti con precisione e professionalità, trovando sempre la soluzione migliore per i tuoi impegni." },
 ];
