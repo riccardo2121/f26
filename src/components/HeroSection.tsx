@@ -37,7 +37,7 @@ export function HeroSection() {
       
       <div className="mx-auto max-w-[1400px] relative z-10 w-full">
         <div className="grid lg:grid-cols-12 gap-6 md:gap-12 items-center w-full">
-          <div className="lg:col-span-5 relative z-10 order-2 md:order-2 lg:order-1 reveal is-visible px-4 md:px-0 w-full">
+          <div className="lg:col-span-5 relative z-10 order-2 md:order-2 lg:order-1 reveal is-visible px-3 md:px-0 w-full max-w-full">
             <div className="opacity-0 inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 rounded-full bg-gradient-to-r from-[var(--surface)] to-[var(--paper)] border border-[var(--accent)]/20 shadow-sm mb-5 md:mb-8 animate-fade-in group" style={{animationDelay: '0.1s'}}>
               <span className="w-2 h-2 rounded-full bg-[var(--accent)] animate-pulse"/>
               <span className="text-[10px] md:text-[11px] uppercase tracking-[0.15em] font-semibold text-[var(--accent)]">
@@ -58,40 +58,40 @@ export function HeroSection() {
                 </svg>
               </span>
             </h1>
-            <p className="opacity-0 text-[15px] md:text-xl font-light text-[var(--ink)]/70 mb-5 md:mb-6 max-w-md leading-relaxed animate-fade-in border-l-2 border-[var(--accent)]/30 pl-4" style={{animationDelay: '0.3s'}}>
+            <p className="opacity-0 text-[14px] md:text-xl font-light text-[var(--ink)]/70 mb-5 md:mb-6 max-w-md leading-relaxed animate-fade-in border-l-2 border-[var(--accent)]/30 pl-3 md:pl-4" style={{animationDelay: '0.3s'}}>
               Dove l'artigianalità incontra l'innovazione. Tagli che esaltano, colori che emozionano, un'esperienza che ti trasforma.
             </p>
-            <div className="opacity-0 flex flex-col sm:flex-row gap-3 md:gap-4 animate-fade-in" style={{animationDelay: '0.4s'}}>
-              <Button href={salon.whatsapp} variant="accent" className="w-full sm:w-auto justify-center px-5 py-4 md:px-10 md:py-5 text-sm md:text-lg font-semibold group relative overflow-hidden shadow-lg shadow-[var(--accent)]/30 active:scale-[0.98] transition-transform">
+            <div className="opacity-0 flex flex-col sm:flex-row gap-3 md:gap-4 animate-fade-in w-full" style={{animationDelay: '0.4s'}}>
+              <Button href={salon.whatsapp} variant="accent" className="!w-full sm:!w-auto justify-center px-4 py-3.5 md:px-10 md:py-5 text-sm md:text-lg font-semibold group relative overflow-hidden shadow-lg shadow-[var(--accent)]/30 active:scale-[0.98] transition-transform">
                 <span className="absolute inset-0 bg-gradient-to-r from-[var(--accent)] to-[var(--accent-dark)] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-                <MessageCircle className="w-5 h-5 md:w-6 md:h-6 mr-2 md:mr-3 relative z-10" />
+                <MessageCircle className="w-5 h-5 md:w-6 md:h-6 mr-2 md:mr-3 relative z-10 shrink-0" />
                 <span className="relative z-10">Prenota ora</span>
               </Button>
-              <Button href={`tel:${salon.phone.replace(/\s+/g,"")}`} variant="outline" className="w-full sm:w-auto justify-center px-5 py-4 md:px-8 md:py-4 text-sm md:text-base border-2 hover:bg-[var(--ink)] hover:text-[var(--paper)] transition-all duration-300 active:scale-[0.98]">
-                <Phone className="w-4 h-4 mr-2 md:hidden" />
+              <Button href={`tel:${salon.phone.replace(/\s+/g,"")}`} variant="outline" className="!w-full sm:!w-auto justify-center px-4 py-3.5 md:px-8 md:py-4 text-sm md:text-base border-2 hover:bg-[var(--ink)] hover:text-[var(--paper)] transition-all duration-300 active:scale-[0.98]">
+                <Phone className="w-4 h-4 mr-2 md:hidden shrink-0" />
                 <span>Chiama ora</span>
               </Button>
             </div>
             
             {/* Trust badges - mobile scrollable */}
-            <div className="mt-6 md:mt-8 overflow-x-auto scrollbar-hide">
+            <div className="mt-6 md:mt-8 overflow-x-auto scrollbar-hide -mx-1 px-1">
               <div className="flex items-center gap-2 text-[11px] md:text-xs opacity-70 w-max md:w-auto pb-1">
-                <div className="flex items-center gap-1.5 bg-[var(--surface)] px-3 py-2 rounded-full border border-[var(--line)] shrink-0">
+                <div className="flex items-center gap-1.5 bg-[var(--surface)] px-2.5 py-1.5 rounded-full border border-[var(--line)] shrink-0">
                   <Award className="w-3.5 h-3.5 md:w-4 md:h-4 text-[var(--accent)]" />
-                  <span>+20 anni esperienza</span>
+                  <span>+20 anni</span>
                 </div>
-                <div className="flex items-center gap-1.5 bg-[var(--surface)] px-3 py-2 rounded-full border border-[var(--line)] shrink-0">
+                <div className="flex items-center gap-1.5 bg-[var(--surface)] px-2.5 py-1.5 rounded-full border border-[var(--line)] shrink-0">
                   <MapPin className="w-3.5 h-3.5 md:w-4 md:h-4 text-[var(--accent)]" />
-                  <span>In centro a Sant'Ambrogio</span>
+                  <span>Sant'Ambrogio</span>
                 </div>
-                <div className="flex items-center gap-1.5 bg-[var(--surface)] px-3 py-2 rounded-full border border-[var(--line)] md:hidden shrink-0">
+                <div className="flex items-center gap-1.5 bg-[var(--surface)] px-2.5 py-1.5 rounded-full border border-[var(--line)] md:hidden shrink-0">
                   <Star className="w-3.5 h-3.5 text-[var(--accent)]" />
-                  <span>4.6 su Google</span>
+                  <span>4.6★</span>
                 </div>
               </div>
             </div>
             {/* Reviews Card - Mobile optimized */}
-            <div className="mt-6 md:mt-10 p-4 md:p-5 rounded-2xl bg-gradient-to-br from-[var(--surface)] to-[var(--paper)] border border-[var(--line)] shadow-sm w-full">
+            <div className="mt-6 md:mt-10 p-3 md:p-5 rounded-2xl bg-gradient-to-br from-[var(--surface)] to-[var(--paper)] border border-[var(--line)] shadow-sm w-full max-w-full overflow-hidden">
               <div className="flex items-center gap-3 md:gap-4">
                 <div className="relative shrink-0">
                   <div className="w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-[var(--accent)]/30 bg-[var(--paper)] p-1.5 md:p-2 flex items-center justify-center shadow-md">
@@ -116,8 +116,8 @@ export function HeroSection() {
               
               <div className="mt-3 md:mt-4 pt-3 md:pt-4 border-t border-[var(--line)]">
                 <div className="text-[10px] md:text-xs uppercase tracking-[.15em] font-bold opacity-70 mb-2 md:mb-3">Lascia una recensione</div>
-                <div className="flex items-center gap-2 md:gap-3">
-                  <div className="inline-flex items-center bg-[var(--paper)] rounded-full px-2 py-1 border border-[var(--line)]">
+                <div className="flex items-center gap-2 md:gap-3 flex-wrap">
+                  <div className="inline-flex items-center bg-[var(--paper)] rounded-full px-1.5 py-1 border border-[var(--line)]">
                     {[1,2,3,4,5].map((n) => (
                       <button
                         key={n}
@@ -126,10 +126,10 @@ export function HeroSection() {
                         onClick={() => { setSelected(n); window.open(reviewUrl, "_blank"); }}
                         onTouchStart={() => setHover(n)}
                         aria-label={`${n} stelle`}
-                        className="p-1 hover:scale-110 active:scale-95 transition-transform"
+                        className="p-0.5 hover:scale-110 active:scale-95 transition-transform"
                       >
                         <Star
-                          size={16}
+                          size={14}
                           className={(hover >= n || selected >= n) ? "text-[var(--accent)]" : "text-[var(--ink)]/20"}
                           fill={(hover >= n || selected >= n) ? "currentColor" : "none"}
                         />
@@ -172,7 +172,7 @@ export function HeroSection() {
                   decoding="async"
                   width={1600}
                   height={600}
-                  className="h-[280px] sm:h-[350px] md:h-[600px] w-full object-cover object-[50%_42%] transition-transform duration-700 md:group-hover:scale-105"
+                  className="h-[340px] sm:h-[400px] md:h-[600px] w-full object-cover object-center transition-transform duration-700 md:group-hover:scale-105"
                 />
               </picture>
             ) : (

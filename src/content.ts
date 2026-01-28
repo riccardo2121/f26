@@ -109,7 +109,7 @@ export const reviews: Review[] = [
 ];
 
 export const team: TeamMember[] = [
+  { name: "Caterina", role: "Accoglienza & Appuntamenti", text: "Il primo sorriso che incontri quando entri. Caterina gestisce gli appuntamenti con precisione e professionalità, trovando sempre la soluzione migliore per i tuoi impegni." },
   { name: "Marianna Giarratano", role: "Directrice Creativa", text: "Visionaria del colore e alchimista dei trattamenti. Marianna ha il dono di leggere la personalità di ogni cliente e tradurla in sfumature che illuminano il volto." },
   { name: "Mimma", role: "Senior Stylist & Consulente", text: "Mimma non ascolta solo i tuoi desideri, li anticipa. Con sensibilità artistica e tecnica raffinata, crea esperienze personalizzate che fanno sentire ogni cliente unico." },
-  { name: "Caterina", role: "Accoglienza & Appuntamenti", text: "Il primo sorriso che incontri quando entri. Caterina gestisce gli appuntamenti con precisione e professionalità, trovando sempre la soluzione migliore per i tuoi impegni." },
 ];

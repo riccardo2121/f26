@@ -1,7 +1,7 @@
 import { team } from "../content";
 import { ChevronRight, Calendar, Award, Sparkles } from "lucide-react";
 
-const teamIcons = [Award, Sparkles, Calendar];
+const teamIcons = [Calendar, Award, Sparkles];
 
 export function TeamSection() {
   return (
