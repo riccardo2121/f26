@@ -37,7 +37,7 @@ export function HeroSection() {
       
       <div className="mx-auto max-w-[1400px] relative z-10 w-full">
         <div className="grid lg:grid-cols-12 gap-6 md:gap-12 items-center w-full">
-          <div className="lg:col-span-5 relative z-10 order-2 md:order-2 lg:order-1 reveal is-visible px-4 md:px-0 w-full text-center md:text-left">
+          <div className="lg:col-span-5 relative z-10 order-2 md:order-2 lg:order-1 reveal is-visible px-4 md:px-0 w-full">
             <div className="opacity-0 inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 rounded-full bg-gradient-to-r from-[var(--surface)] to-[var(--paper)] border border-[var(--accent)]/20 shadow-sm mb-5 md:mb-8 animate-fade-in group" style={{animationDelay: '0.1s'}}>
               <span className="w-2 h-2 rounded-full bg-[var(--accent)] animate-pulse"/>
               <span className="text-[10px] md:text-[11px] uppercase tracking-[0.15em] font-semibold text-[var(--accent)]">
@@ -61,14 +61,14 @@ export function HeroSection() {
             <p className="opacity-0 text-[15px] md:text-xl font-light text-[var(--ink)]/70 mb-5 md:mb-6 max-w-md leading-relaxed animate-fade-in border-l-2 border-[var(--accent)]/30 pl-4" style={{animationDelay: '0.3s'}}>
               Dove l'artigianalità incontra l'innovazione. Tagli che esaltano, colori che emozionano, un'esperienza che ti trasforma.
             </p>
-            <div className="opacity-0 grid grid-cols-2 sm:flex sm:flex-row gap-3 md:gap-4 animate-fade-in justify-items-center" style={{animationDelay: '0.4s'}}>
-              <Button href={salon.whatsapp} variant="accent" className="col-span-2 sm:col-span-1 px-4 py-3.5 md:px-10 md:py-5 text-sm md:text-lg font-semibold group relative overflow-hidden shadow-lg shadow-[var(--accent)]/30 active:scale-[0.98] transition-transform">
+            <div className="opacity-0 flex flex-col sm:flex-row gap-3 md:gap-4 animate-fade-in" style={{animationDelay: '0.4s'}}>
+              <Button href={salon.whatsapp} variant="accent" className="w-full sm:w-auto justify-center px-5 py-4 md:px-10 md:py-5 text-sm md:text-lg font-semibold group relative overflow-hidden shadow-lg shadow-[var(--accent)]/30 active:scale-[0.98] transition-transform">
                 <span className="absolute inset-0 bg-gradient-to-r from-[var(--accent)] to-[var(--accent-dark)] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-                <MessageCircle className="w-5 h-5 md:w-6 md:h-6 mr-2 md:mr-3 relative z-10 shrink-0" />
+                <MessageCircle className="w-5 h-5 md:w-6 md:h-6 mr-2 md:mr-3 relative z-10" />
                 <span className="relative z-10">Prenota ora</span>
               </Button>
-              <Button href={`tel:${salon.phone.replace(/\s+/g,"")}`} variant="outline" className="col-span-2 sm:col-span-1 px-4 py-3.5 md:px-8 md:py-4 text-sm md:text-base border-2 hover:bg-[var(--ink)] hover:text-[var(--paper)] transition-all duration-300 active:scale-[0.98]">
-                <Phone className="w-4 h-4 mr-2 md:hidden shrink-0" />
+              <Button href={`tel:${salon.phone.replace(/\s+/g,"")}`} variant="outline" className="w-full sm:w-auto justify-center px-5 py-4 md:px-8 md:py-4 text-sm md:text-base border-2 hover:bg-[var(--ink)] hover:text-[var(--paper)] transition-all duration-300 active:scale-[0.98]">
+                <Phone className="w-4 h-4 mr-2 md:hidden" />
                 <span>Chiama ora</span>
               </Button>
             </div>
