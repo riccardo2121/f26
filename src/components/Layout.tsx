@@ -374,7 +374,7 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
                 {/* Primary CTA - WhatsApp */}
                 <a
                   href={salon.whatsapp}
-                  className="flex-1 min-w-0 inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-xl bg-[#25D366] text-white text-sm font-bold shadow-lg shadow-[#25D366]/30 active:scale-[0.98] transition-all"
+                  className="flex-1 min-w-0 inline-flex items-center justify-center gap-2 px-3 xs:px-4 py-3.5 rounded-xl bg-[#25D366] text-white text-sm font-bold shadow-lg shadow-[#25D366]/30 active:scale-[0.98] transition-all"
                   aria-label="Prenota su WhatsApp"
                 >
                   <MessageCircle size={20} strokeWidth={2.5} className="shrink-0" />
@@ -385,10 +385,10 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
                 <div className="flex items-center gap-1.5 shrink-0">
                   <a
                     href={`tel:${salon.phone.replace(/\s+/g,"")}`}
-                    className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-[var(--accent)] text-white shadow-lg shadow-[var(--accent)]/30 active:scale-[0.98] transition-all"
+                    className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-white text-[var(--accent)] shadow-lg shadow-white/10 active:scale-[0.98] transition-all border-2 border-[var(--accent)]"
                     aria-label="Chiama"
                   >
-                    <Phone size={22} strokeWidth={2.5} />
+                    <Phone size={24} strokeWidth={2.5} />
                   </a>
                   <a
                     href={salon.maps}
@@ -405,23 +405,25 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
               {/* Quick info bar - Stato in tempo reale */}
               <div className="flex items-center justify-center gap-3 mt-2 pt-2 border-t border-white/10">
                 {businessStatus.isOpen ? (
-                  <span className="text-[11px] font-bold text-green-400 flex items-center gap-1.5">
-                    <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+                  <span className="text-xs font-black text-green-300 uppercase tracking-wide flex items-center gap-1.5 bg-green-900/30 px-2 py-0.5 rounded-full">
+                    <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse shadow-[0_0_8px_rgba(74,222,128,0.5)]"></span>
                     Aperto ora
                   </span>
                 ) : (
-                  <span className="text-[11px] font-bold text-amber-400 flex items-center gap-1.5">
+                  <span className="text-xs font-black text-amber-300 uppercase tracking-wide flex items-center gap-1.5 bg-amber-900/30 px-2 py-0.5 rounded-full">
                     <span className="w-2 h-2 rounded-full bg-amber-400"></span>
                     Chiuso
                     {businessStatus.nextOpening && (
-                      <span className="text-white/70 font-normal ml-1">
-                        • Apre {businessStatus.nextOpening.day.toLowerCase()} alle {businessStatus.nextOpening.time}
+                      <span className="text-white/80 font-medium ml-1 normal-case hidden xs:inline">
+                        • Apre {businessStatus.nextOpening.day.toLowerCase()} {businessStatus.nextOpening.time}
                       </span>
                     )}
                   </span>
                 )}
-                <span className="text-white/30">|</span>
-                <span className="text-sm font-bold text-white">{salon.phone}</span>
+                <span className="text-white/20">|</span>
+                <a href={`tel:${salon.phone.replace(/\s+/g,"")}`} className="text-base font-black text-white tracking-wide hover:text-[var(--accent)] transition-colors">
+                  {salon.phone}
+                </a>
               </div>
             </div>
           </div>

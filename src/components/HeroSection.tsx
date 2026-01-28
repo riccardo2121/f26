@@ -116,7 +116,7 @@ export function HeroSection() {
               
               <div className="mt-3 md:mt-4 pt-3 md:pt-4 border-t border-[var(--line)]">
                 <div className="text-[10px] md:text-xs uppercase tracking-[.15em] font-bold opacity-70 mb-2 md:mb-3">Lascia una recensione</div>
-                <div className="flex items-center gap-2 md:gap-3">
+                <div className="flex flex-wrap items-center gap-2 md:gap-3">
                   <div className="inline-flex items-center bg-[var(--paper)] rounded-full px-2 py-1 border border-[var(--line)]">
                     {[1,2,3,4,5].map((n) => (
                       <button
