@@ -38,12 +38,6 @@ export function HeroSection() {
       <div className="mx-auto max-w-[1400px] relative z-10 w-full">
         <div className="grid lg:grid-cols-12 gap-6 md:gap-12 items-center w-full">
           <div className="lg:col-span-5 relative z-10 order-2 md:order-2 lg:order-1 reveal is-visible px-3 md:px-0 w-full max-w-full">
-            <div className="opacity-0 inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 rounded-full bg-gradient-to-r from-[var(--surface)] to-[var(--paper)] border border-[var(--accent)]/20 shadow-sm mb-5 md:mb-8 animate-fade-in group" style={{animationDelay: '0.1s'}}>
-              <span className="w-2 h-2 rounded-full bg-[var(--accent)] animate-pulse"/>
-              <span className="text-[10px] md:text-[11px] uppercase tracking-[0.15em] font-semibold text-[var(--accent)]">
-                Arte <span className="font-serif italic font-normal lowercase">e</span> Passione dal 2003
-              </span>
-            </div>
             <h1 className="opacity-0 text-[1.75rem] leading-[1.2] sm:text-4xl md:text-6xl lg:text-7xl font-serif font-medium mb-4 md:mb-8 animate-fade-in" style={{animationDelay: '0.2s'}}>
               <span className="block bg-gradient-to-r from-[var(--ink)] via-[var(--accent-dark)] to-[var(--accent)] bg-clip-text text-transparent">
                 La tua bellezza
