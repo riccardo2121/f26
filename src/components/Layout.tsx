@@ -45,8 +45,13 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
 
   // Handle scroll when location changes (e.g. navigation from another page)
   useEffect(() => {
-    if (location.pathname === "/" && location.state && (location.state as any).scrollTo) {
-      const targetId = (location.state as any).scrollTo;
+    interface LocationState {
+      scrollTo?: string;
+    }
+    
+    const state = location.state as LocationState | null;
+    if (location.pathname === "/" && state?.scrollTo) {
+      const targetId = state.scrollTo;
       // Small timeout to ensure DOM is ready
       setTimeout(() => {
         scrollToElement(targetId);

@@ -69,7 +69,7 @@ export function ServicesSection() {
     const scrollContainer = scrollRef.current;
     if (!scrollContainer) return;
     
-    let autoScrollInterval: NodeJS.Timeout;
+    let autoScrollInterval: ReturnType<typeof setInterval>;
     
     const startAutoScroll = () => {
       autoScrollInterval = setInterval(() => {

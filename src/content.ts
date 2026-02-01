@@ -15,6 +15,7 @@ export interface Salon {
   rating?: number;
   customers?: number;
   placeId?: string;
+  experience?: number;
 }
 
 export interface Service {

@@ -252,7 +252,7 @@ export function PricesSection() {
             { icon: Check, text: 'Prodotti di eccellenza' },
             { icon: Clock, text: 'Consulenza gratuita' },
             { icon: Sparkles, text: 'Risultato garantito' },
-          ].map((badge, i) => (
+          ].map((badge) => (
             <div 
               key={badge.text}
               className="flex items-center gap-2 bg-white px-5 py-3 rounded-full border border-[var(--color-line)] shadow-sm"
