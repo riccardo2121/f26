@@ -1,162 +1,255 @@
 import { salon } from "../content";
-import { MessageCircle, Star, Sparkles, Award, MapPin, Phone } from "lucide-react";
-import { useState, useEffect } from "react";
+import { MessageCircle, Star, Sparkles, Award, MapPin, Phone, ChevronDown } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
 import { Button } from "./UI";
 
 export function HeroSection() {
-  const [hover, setHover] = useState(0);
-  const [selected, setSelected] = useState(0);
   const [scrollY, setScrollY] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const heroRef = useRef<HTMLElement>(null);
   
   useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
+    // Trigger entrance animations
+    const timer = setTimeout(() => setIsVisible(true), 100);
+    
+    const handleScroll = () => {
+      if (heroRef.current) {
+        const rect = heroRef.current.getBoundingClientRect();
+        if (rect.bottom > 0) {
+          setScrollY(window.scrollY);
+        }
+      }
+    };
+    
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
-  
-  const reviewUrl = salon.placeId
-    ? `https://search.google.com/local/writereview?hl=it&placeid=${salon.placeId}`
-    : `https://www.google.com/search?q=${encodeURIComponent(`${salon.name} ${salon.city} recensioni Google`)}&hl=it`;
+
+  const scrollToServices = () => {
+    const element = document.getElementById('servizi');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
-    <section className="relative pt-16 md:pt-32 md:pb-16 overflow-hidden">
-      {/* Decorative floating elements - Mobile optimized */}
-      <div className="absolute top-16 right-4 w-16 h-16 rounded-full bg-[var(--accent)]/15 blur-2xl animate-float md:hidden"></div>
-      <div className="absolute top-32 left-4 w-24 h-24 rounded-full bg-[var(--accent-light)]/40 blur-3xl animate-float-delayed md:hidden"></div>
-      
-      <div className="hidden md:block absolute top-20 left-10 w-20 h-20 rounded-full bg-[var(--accent)]/10 blur-2xl animate-float" style={{transform: `translateY(${scrollY * 0.1}px)`}}></div>
-      <div className="hidden md:block absolute top-40 right-20 w-32 h-32 rounded-full bg-[var(--accent-light)]/30 blur-3xl animate-float-delayed" style={{transform: `translateY(${scrollY * 0.15}px)`}}></div>
-      <div className="hidden md:block absolute bottom-40 left-1/4 w-24 h-24 rounded-full bg-gradient-to-br from-[var(--accent)]/20 to-transparent blur-2xl animate-float-slow"></div>
-      
-      {/* Decorative shapes */}
-      <div className="absolute top-28 right-6 md:right-20 opacity-30 md:opacity-20">
-        <Sparkles className="w-6 h-6 md:w-8 md:h-8 text-[var(--accent)] animate-pulse-slow" />
+    <section 
+      ref={heroRef}
+      className="relative min-h-screen flex items-center pt-20 md:pt-32 overflow-hidden"
+    >
+      {/* Background Elements - Parallax */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Gradient orbs */}
+        <div 
+          className="absolute -top-20 -right-20 w-[600px] h-[600px] rounded-full bg-gradient-to-br from-[var(--color-accent-light)] to-transparent opacity-40 blur-3xl"
+          style={{ transform: `translateY(${scrollY * 0.1}px)` }}
+        />
+        <div 
+          className="absolute top-1/3 -left-32 w-[500px] h-[500px] rounded-full bg-gradient-to-tr from-[var(--color-accent)]/20 to-transparent opacity-30 blur-3xl"
+          style={{ transform: `translateY(${scrollY * 0.15}px)` }}
+        />
+        <div 
+          className="absolute bottom-0 right-1/4 w-[400px] h-[400px] rounded-full bg-gradient-to-tl from-[var(--color-accent-light)]/50 to-transparent opacity-30 blur-3xl"
+          style={{ transform: `translateY(${scrollY * -0.08}px)` }}
+        />
+        
+        {/* Decorative shapes */}
+        <div className="absolute top-32 right-16 opacity-20 animate-float-slow hidden lg:block">
+          <Sparkles className="w-10 h-10 text-[var(--color-accent)]" />
+        </div>
+        <div className="absolute top-48 left-20 opacity-15 animate-float-delayed hidden lg:block">
+          <Award className="w-16 h-16 text-[var(--color-accent)]" />
+        </div>
       </div>
-      <div className="absolute bottom-40 left-4 md:left-8 opacity-20 md:opacity-15">
-        <Award className="w-10 h-10 md:w-12 md:h-12 text-[var(--accent)] animate-float" />
-      </div>
-      
-      <div className="mx-auto max-w-[1400px] relative z-10 w-full">
-        <div className="grid lg:grid-cols-12 gap-6 md:gap-12 items-center w-full">
-          <div className="lg:col-span-5 relative z-10 order-2 md:order-2 lg:order-1 reveal is-visible px-3 md:px-0 w-full max-w-full">
-            <div className="opacity-0 inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 rounded-full bg-gradient-to-r from-[var(--surface)] to-[var(--paper)] border border-[var(--accent)]/20 shadow-sm mb-5 md:mb-8 animate-fade-in group" style={{animationDelay: '0.1s'}}>
-              <span className="w-2 h-2 rounded-full bg-[var(--accent)] animate-pulse"/>
-              <span className="text-[10px] md:text-[11px] uppercase tracking-[0.15em] font-semibold text-[var(--accent)]">
-                Arte <span className="font-serif italic font-normal lowercase">e</span> Passione
+
+      <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          {/* Content Column */}
+          <div className="order-2 lg:order-1 relative z-10">
+            {/* Badge */}
+            <div 
+              className={`inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--color-surface)] border border-[var(--color-accent)]/20 shadow-sm mb-6 md:mb-8 transition-all duration-700 ${
+                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+              }`}
+              style={{ transitionDelay: '100ms' }}
+            >
+              <span className="w-2 h-2 rounded-full bg-[var(--color-accent)] animate-pulse"/>
+              <span className="text-[11px] uppercase tracking-[0.15em] font-semibold text-[var(--color-accent)]">
+                Dal 2003 • Arte & Passione per i tuoi capelli
               </span>
             </div>
-            <h1 className="opacity-0 text-[1.75rem] leading-[1.2] sm:text-4xl md:text-6xl lg:text-7xl font-serif font-medium mb-4 md:mb-8 animate-fade-in" style={{animationDelay: '0.2s'}}>
-              <span className="block bg-gradient-to-r from-[var(--ink)] via-[var(--accent-dark)] to-[var(--accent)] bg-clip-text text-transparent">
-                La tua bellezza
+
+            {/* Main Heading */}
+            <h1 
+              className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-medium leading-[1.1] mb-6 md:mb-8 transition-all duration-700 ${
+                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+              }`}
+              style={{ transitionDelay: '200ms' }}
+            >
+              <span className="block text-[var(--color-ink)]">
+                I Giarratano
               </span>
-              <span className="block mt-1 md:mt-2">
-                merita eccellenza
+              <span className="block mt-1 md:mt-2 bg-gradient-to-r from-[var(--color-ink)] via-[var(--color-accent-dark)] to-[var(--color-accent)] bg-clip-text text-transparent">
+                Parrucchieri
               </span>
               <span className="relative inline-block mt-1 md:mt-2">
-                <span className="italic text-[var(--accent)] relative z-10">made in Italy</span>
-                <svg className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-2.5 md:h-3 text-[var(--accent-light)] -z-0 title-underline" viewBox="0 0 200 12" preserveAspectRatio="none">
-                  <path className="title-underline-path" d="M0,8 Q50,0 100,8 T200,8" stroke="currentColor" strokeWidth="4" fill="none" strokeLinecap="round"/>
+                <span className="italic text-[var(--color-accent)]">Esci con la fiducia</span>
+                <svg className="absolute -bottom-1 md:-bottom-2 left-0 w-full h-3 text-[var(--color-accent-light)]" viewBox="0 0 200 12" preserveAspectRatio="none">
+                  <path className="animate-[wavePath_3s_ease-in-out_infinite]" d="M0,8 Q50,0 100,8 T200,8" stroke="currentColor" strokeWidth="4" fill="none" strokeLinecap="round"/>
                 </svg>
               </span>
+              <span className="block mt-1 md:mt-2">
+                che meriti
+              </span>
             </h1>
-            <p className="opacity-0 text-[14px] md:text-xl font-light text-[var(--ink)]/70 mb-5 md:mb-6 max-w-md leading-relaxed animate-fade-in border-l-2 border-[var(--accent)]/30 pl-3 md:pl-4" style={{animationDelay: '0.3s'}}>
-              Dove l'artigianalità incontra l'innovazione. Tagli che esaltano, colori che emozionano, un'esperienza che ti trasforma.
+
+            {/* Description */}
+            <p 
+              className={`text-base md:text-xl font-light text-[var(--color-ink)]/70 mb-8 max-w-lg leading-relaxed transition-all duration-700 ${
+                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+              }`}
+              style={{ transitionDelay: '300ms' }}
+            >
+              <span className="border-l-2 border-[var(--color-accent)]/30 pl-4 md:pl-5">
+                Da 20 anni a Sant'Ambrogio di Torino, creiamo look che raccontano chi sei davvero. 
+                Taglio, colore e cura del capello: un'esperienza tailor-made per la tua unicità.
+              </span>
             </p>
-            <div className="opacity-0 flex flex-col sm:flex-row gap-3 md:gap-4 animate-fade-in w-full" style={{animationDelay: '0.4s'}}>
-              <Button href={salon.whatsapp} variant="accent" className="!w-full sm:!w-auto justify-center px-4 py-3.5 md:px-10 md:py-5 text-sm md:text-lg font-semibold group relative overflow-hidden shadow-lg shadow-[var(--accent)]/30 active:scale-[0.98] transition-transform">
-                <span className="absolute inset-0 bg-gradient-to-r from-[var(--accent)] to-[var(--accent-dark)] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-                <MessageCircle className="w-5 h-5 md:w-6 md:h-6 mr-2 md:mr-3 relative z-10 shrink-0" />
-                <span className="relative z-10">Prenota ora</span>
+
+            {/* CTA Buttons */}
+            <div 
+              className={`flex flex-col sm:flex-row gap-3 md:gap-4 mb-10 md:mb-12 transition-all duration-700 ${
+                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+              }`}
+              style={{ transitionDelay: '400ms' }}
+            >
+              <Button 
+                href={salon.whatsapp} 
+                variant="accent" 
+                className="group relative overflow-hidden shadow-lg shadow-[var(--color-accent)]/30 hover:shadow-xl hover:shadow-[var(--color-accent)]/40 press-effect"
+              >
+                <span className="absolute inset-0 bg-gradient-to-r from-[var(--color-accent)] to-[var(--color-accent-dark)] opacity-0 group-hover:opacity-100 transition-opacity duration-500"/>
+                <MessageCircle className="w-5 h-5 mr-2 relative z-10" />
+                <span className="relative z-10">Prenota la tua consulenza</span>
               </Button>
-              <Button href={`tel:${salon.phone.replace(/\s+/g,"")}`} variant="outline" className="!w-full sm:!w-auto justify-center px-4 py-3.5 md:px-8 md:py-4 text-sm md:text-base border-2 hover:bg-[var(--ink)] hover:text-[var(--paper)] transition-all duration-300 active:scale-[0.98]">
-                <Phone className="w-4 h-4 mr-2 md:hidden shrink-0" />
+              <Button 
+                href={`tel:${salon.phone.replace(/\s+/g,"")}`} 
+                variant="outline" 
+                className="border-2 hover:bg-[var(--color-ink)] hover:text-[var(--color-paper)] transition-all duration-300 press-effect"
+              >
+                <Phone className="w-4 h-4 mr-2 md:hidden" />
                 <span>Chiama ora</span>
               </Button>
             </div>
-            
-            {/* Reviews Card - Mobile optimized */}
-            <div className="mt-10 md:mt-14 p-4 md:p-5 rounded-2xl bg-gradient-to-br from-[var(--surface)] to-[var(--paper)] border border-[var(--line)] shadow-sm w-full max-w-full overflow-hidden">
-              <div className="flex items-center gap-3 md:gap-4">
-                <div className="relative shrink-0">
-                  <div className="w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-[var(--accent)]/30 bg-[var(--paper)] p-1.5 md:p-2 flex items-center justify-center shadow-md">
-                    <img src="/logo.png" alt="Reviews" className="w-full h-full object-contain" />
-                  </div>
-                  <div className="absolute -bottom-1 -right-1 w-5 h-5 md:w-6 md:h-6 bg-[var(--accent)] rounded-full flex items-center justify-center">
-                    <Star className="w-3 h-3 md:w-3.5 md:h-3.5 text-white fill-white" />
+
+            {/* Social Proof Card */}
+            <div 
+              className={`inline-flex items-center gap-4 p-4 md:p-5 rounded-2xl bg-[var(--color-surface)] border border-[var(--color-line)] shadow-sm transition-all duration-700 hover:shadow-md hover:-translate-y-1 ${
+                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+              }`}
+              style={{ transitionDelay: '500ms' }}
+            >
+              <div className="relative">
+                <div className="w-12 h-12 md:w-14 md:h-14 rounded-full border-2 border-[var(--color-accent)]/30 bg-[var(--color-paper)] p-1.5 flex items-center justify-center">
+                  <img src="/logo.png" alt="Reviews" className="w-full h-full object-contain" />
+                </div>
+                <div className="absolute -bottom-1 -right-1 w-5 h-5 md:w-6 md:h-6 bg-[var(--color-accent)] rounded-full flex items-center justify-center">
+                  <Star className="w-3 h-3 md:w-3.5 md:h-3.5 text-white fill-white" />
+                </div>
+              </div>
+              <div>
+                <div className="flex items-center gap-1.5">
+                  <span className="text-[var(--color-accent)] font-serif font-bold text-xl md:text-2xl italic">4.6</span>
+                  <div className="flex">
+                    {[1,2,3,4,5].map((n) => (
+                      <Star key={n} className="w-3.5 h-3.5 md:w-4 md:h-4 text-[var(--color-accent)] fill-[var(--color-accent)]" />
+                    ))}
                   </div>
                 </div>
-                <div className="min-w-0">
-                  <div className="flex items-center gap-1.5 mb-0.5">
-                    <span className="text-[var(--accent)] font-serif font-bold text-xl md:text-2xl italic">4.6</span>
-                    <div className="flex">
-                      {[1,2,3,4,5].map((n) => (
-                        <Star key={n} className="w-3.5 h-3.5 md:w-4 md:h-4 text-[var(--accent)] fill-[var(--accent)]" />
-                      ))}
-                    </div>
-                  </div>
-                  <div className="text-[10px] md:text-[11px] uppercase tracking-wider font-bold opacity-60">Su Google Reviews</div>
+                <div className="text-[10px] md:text-[11px] uppercase tracking-wider font-bold text-[var(--color-ink)]/50">
+                  Su Google Reviews • 100+ recensioni
                 </div>
               </div>
             </div>
           </div>
-          <div className="lg:col-span-7 relative overflow-hidden rounded-none md:rounded-[2.5rem] md:card-premium group md:rotate-1 md:hover:rotate-0 transition-all duration-700 order-1 md:order-1 lg:order-2 mb-6 md:mb-8 lg:mb-0 will-change-transform md:ring-1 md:ring-[var(--line)] md:hover:ring-[var(--accent)]/40 md:hover:shadow-2xl md:hover:shadow-[var(--accent)]/10 w-full">
-            {salon.heroAvif || salon.heroWebp ? (
-              <picture>
-                {salon.heroAvif && (
-                  <source
-                    type="image/avif"
-                    srcSet={`${salon.heroAvif} 1600w`}
-                    sizes="(max-width: 768px) 100vw, 800px"
+
+          {/* Image Column */}
+          <div 
+            className={`order-1 lg:order-2 relative transition-all duration-1000 ${
+              isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'
+            }`}
+            style={{ transitionDelay: '300ms' }}
+          >
+            <div className="relative group">
+              {/* Main Image Container */}
+              <div className="relative overflow-hidden rounded-[2rem] md:rounded-[2.5rem] shadow-2xl shadow-[var(--color-ink)]/10">
+                {salon.heroAvif || salon.heroWebp ? (
+                  <picture>
+                    {salon.heroAvif && (
+                      <source type="image/avif" srcSet={`${salon.heroAvif} 1600w`} sizes="(max-width: 768px) 100vw, 800px" />
+                    )}
+                    {salon.heroWebp && (
+                      <source type="image/webp" srcSet={`${salon.heroWebp} 1600w`} sizes="(max-width: 768px) 100vw, 800px" />
+                    )}
+                    <img
+                      src={salon.heroJpeg ?? ""}
+                      alt={`Salone ${salon.name}`}
+                      loading="eager"
+                      decoding="async"
+                      width={800}
+                      height={600}
+                      className="w-full h-[400px] sm:h-[450px] md:h-[550px] lg:h-[650px] object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                  </picture>
+                ) : (
+                  <img
+                    src={salon.heroJpeg ?? ""}
+                    alt={`Salone ${salon.name}`}
+                    loading="eager"
+                    decoding="async"
+                    width={800}
+                    height={600}
+                    className="w-full h-[400px] sm:h-[450px] md:h-[550px] lg:h-[650px] object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                 )}
-                {salon.heroWebp && (
-                  <source
-                    type="image/webp"
-                    srcSet={`${salon.heroWebp} 1600w`}
-                    sizes="(max-width: 768px) 100vw, 800px"
-                  />
-                )}
-                <img
-                  src={salon.heroJpeg ?? ""}
-                  alt={`Salone ${salon.name}`}
-                  loading="eager"
-                  decoding="async"
-                  width={1600}
-                  height={600}
-                  className="h-[340px] sm:h-[400px] md:h-[600px] w-full object-cover object-center transition-transform duration-700 md:group-hover:scale-105"
-                />
-              </picture>
-            ) : (
-              <img
-                src={salon.heroJpeg ?? ""}
-                srcSet="
-                  https://images.pexels.com/photos/3993449/pexels-photo-3993449.jpeg?auto=compress&cs=tinysrgb&w=480 480w,
-                  https://images.pexels.com/photos/3993449/pexels-photo-3993449.jpeg?auto=compress&cs=tinysrgb&w=800 800w,
-                  https://images.pexels.com/photos/3993449/pexels-photo-3993449.jpeg?auto=compress&cs=tinysrgb&w=1200 1200w,
-                  https://images.pexels.com/photos/3993449/pexels-photo-3993449.jpeg?auto=compress&cs=tinysrgb&w=1600 1600w
-                "
-                sizes="(max-width: 768px) 100vw, 800px"
-                alt={`Salone ${salon.name}`}
-                loading="eager"
-                decoding="async"
-                width={1600}
-                height={600}
-                className="h-[340px] sm:h-[400px] md:h-[600px] w-full object-cover object-center transition-transform duration-700 md:group-hover:scale-105"
-              />
-            )}
-            {/* Gradient overlays */}
-            <div className="pointer-events-none absolute inset-x-0 top-0 h-20 md:h-28 bg-gradient-to-b from-[var(--paper)] to-transparent opacity-90 md:opacity-80"></div>
-            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 md:h-24 bg-gradient-to-t from-[var(--paper)] to-transparent opacity-80 md:opacity-0"></div>
-            {/* Decorative elements */}
-            <div className="absolute -bottom-6 -right-6 md:-bottom-10 md:-right-10 w-24 h-24 md:w-32 md:h-32 bg-[var(--accent)] rounded-full mix-blend-multiply filter blur-xl opacity-60"></div>
+                
+                {/* Gradient Overlays */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-paper)] via-transparent to-transparent opacity-60 md:opacity-40" />
+                <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-paper)]/20 to-transparent opacity-50" />
+              </div>
+
+              {/* Floating Location Badge */}
+              <div 
+                className="absolute -bottom-4 -left-4 md:bottom-8 md:-left-8 bg-white rounded-2xl p-4 shadow-xl border border-[var(--color-line)] animate-float-slow hidden sm:flex items-center gap-3"
+              >
+                <div className="w-12 h-12 rounded-xl bg-[var(--color-accent)]/10 flex items-center justify-center">
+                  <MapPin className="w-6 h-6 text-[var(--color-accent)]" />
+                </div>
+                <div>
+                  <div className="text-xs uppercase tracking-wider font-bold text-[var(--color-ink)]/50">Siamo a</div>
+                  <div className="font-medium text-[var(--color-ink)]">{salon.city}</div>
+                </div>
+              </div>
+
+              {/* Decorative ring */}
+              <div className="absolute -z-10 -top-6 -right-6 w-full h-full border-2 border-[var(--color-accent)]/20 rounded-[2.5rem] hidden lg:block" />
+            </div>
           </div>
         </div>
       </div>
-      {/* Wave divider */}
-      <div className="absolute -bottom-1 left-0 w-full overflow-hidden leading-[0]">
-        <svg className="relative w-full h-[40px] md:h-[60px]" viewBox="0 0 1200 120" preserveAspectRatio="none">
-          <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="var(--paper)" fillOpacity="1"></path>
-        </svg>
-      </div>
+
+      {/* Scroll Indicator */}
+      <button 
+        onClick={scrollToServices}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-[var(--color-ink)]/40 hover:text-[var(--color-accent)] transition-colors group"
+        aria-label="Scorri per esplorare"
+      >
+        <span className="text-[10px] uppercase tracking-[0.2em] font-semibold">Scopri di più</span>
+        <ChevronDown className="w-5 h-5 animate-bounce-subtle group-hover:text-[var(--color-accent)]" />
+      </button>
     </section>
   );
 }

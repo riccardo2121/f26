@@ -1,33 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+  
+  <!-- Homepage - Highest Priority -->
   <url>
-    <loc>https://www.eleganzaestile.it/</loc>
+    <loc>https://www.igiarratanoparrucchieri.it/</loc>
+    <lastmod>2025-02-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="it-it" href="https://www.igiarratanoparrucchieri.it/" />
+    <image:image>
+      <image:loc>https://www.igiarratanoparrucchieri.it/logo.png</image:loc>
+      <image:title>I Giarratano Parrucchieri - Logo</image:title>
+      <image:caption>Logo ufficiale del salone I Giarratano a Sant'Ambrogio di Torino</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/3993449/pexels-photo-3993449.jpeg</image:loc>
+      <image:title>Interno salone I Giarratano Parrucchieri</image:title>
+      <image:caption>Salone parrucchiere elegante a Sant'Ambrogio di Torino</image:caption>
+    </image:image>
   </url>
+  
+  <!-- Chi Siamo -->
   <url>
-    <loc>https://www.eleganzaestile.it/#/recensioni</loc>
+    <loc>https://www.igiarratanoparrucchieri.it/chi-siamo</loc>
+    <lastmod>2025-02-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="it-it" href="https://www.igiarratanoparrucchieri.it/chi-siamo" />
+    <image:image>
+      <image:loc>https://images.pexels.com/photos/3993444/pexels-photo-3993444.jpeg</image:loc>
+      <image:title>Il team I Giarratano Parrucchieri</image:title>
+      <image:caption>Team di professionisti del salone a Sant'Ambrogio</image:caption>
+    </image:image>
   </url>
+  
+  <!-- Recensioni -->
   <url>
-    <loc>https://www.eleganzaestile.it/#/contatti</loc>
+    <loc>https://www.igiarratanoparrucchieri.it/recensioni</loc>
+    <lastmod>2025-02-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="it-it" href="https://www.igiarratanoparrucchieri.it/recensioni" />
+  </url>
+  
+  <!-- Contatti - High Priority for conversions -->
+  <url>
+    <loc>https://www.igiarratanoparrucchieri.it/contatti</loc>
+    <lastmod>2025-02-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="it-it" href="https://www.igiarratanoparrucchieri.it/contatti" />
   </url>
+  
+  <!-- Privacy Policy - Low Priority -->
   <url>
-    <loc>https://www.eleganzaestile.it/#/chi-siamo</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.eleganzaestile.it/#/privacy</loc>
+    <loc>https://www.igiarratanoparrucchieri.it/privacy</loc>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="it-it" href="https://www.igiarratanoparrucchieri.it/privacy" />
   </url>
+  
+  <!-- Termini di Servizio - Low Priority -->
   <url>
-    <loc>https://www.eleganzaestile.it/#/termini</loc>
+    <loc>https://www.igiarratanoparrucchieri.it/termini</loc>
+    <lastmod>2025-01-01</lastmod>
     <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.3</priority>
+    <xhtml:link rel="alternate" hreflang="it-it" href="https://www.igiarratanoparrucchieri.it/termini" />
   </url>
+  
 </urlset>

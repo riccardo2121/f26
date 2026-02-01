@@ -1,0 +1,259 @@
+/**
+ * I Giarratano Parrucchieri - Design System 2025
+ * Sistema di design aggiornato per luxury hair salon
+ */
+
+:root {
+  /* ============================================
+     COLOR PALETTE - Raffinata
+     ============================================ */
+  
+  /* Primary Colors */
+  --color-paper: #fbf5ee;
+  --color-paper-dark: #f5ebe0;
+  --color-paper-darker: #efe4d6;
+  
+  /* Ink Colors */
+  --color-ink: #121212;
+  --color-ink-light: #2a2a2a;
+  --color-ink-lighter: #404040;
+  
+  /* Accent - Gold */
+  --color-accent: #B38B59;
+  --color-accent-dark: #8A6B46;
+  --color-accent-darker: #6B5236;
+  --color-accent-light: #F1E6D7;
+  --color-accent-lighter: #F8F1E8;
+  
+  /* Semantic Colors */
+  --color-success: #22c55e;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+  --color-info: #3b82f6;
+  
+  /* Line & Borders */
+  --color-line: rgba(18, 18, 18, 0.08);
+  --color-line-dark: rgba(18, 18, 18, 0.15);
+  --color-line-accent: rgba(179, 139, 89, 0.3);
+  
+  /* Surface */
+  --color-surface: #f7f2ea;
+  --color-surface-elevated: #ffffff;
+  --color-surface-sunken: #efe9e1;
+
+  /* ============================================
+     TYPOGRAPHY - Scala Fluida
+     ============================================ */
+  
+  /* Font Families */
+  --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  
+  /* Type Scale - Fluid (clamp) */
+  --text-2xs: clamp(0.625rem, 0.6rem + 0.125vw, 0.75rem);
+  --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+  --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+  --text-base: clamp(1rem, 0.9rem + 0.5vw, 1.125rem);
+  --text-lg: clamp(1.125rem, 1rem + 0.65vw, 1.375rem);
+  --text-xl: clamp(1.25rem, 1.1rem + 0.75vw, 1.75rem);
+  --text-2xl: clamp(1.5rem, 1.2rem + 1.5vw, 2.5rem);
+  --text-3xl: clamp(1.875rem, 1.5rem + 1.875vw, 3rem);
+  --text-4xl: clamp(2.25rem, 1.8rem + 2.25vw, 4rem);
+  --text-5xl: clamp(3rem, 2.5rem + 2.5vw, 5rem);
+  --text-6xl: clamp(3.75rem, 3rem + 3.75vw, 6rem);
+  
+  /* Line Heights */
+  --leading-none: 1;
+  --leading-tight: 1.2;
+  --leading-snug: 1.35;
+  --leading-normal: 1.6;
+  --leading-relaxed: 1.75;
+  --leading-loose: 2;
+  
+  /* Letter Spacing */
+  --tracking-tighter: -0.04em;
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.02em;
+  --tracking-wider: 0.05em;
+  --tracking-widest: 0.1em;
+  --tracking-ultra: 0.2em;
+
+  /* ============================================
+     SPACING - Scala Ritmica
+     ============================================ */
+  
+  --space-px: 1px;
+  --space-0: 0;
+  --space-0-5: clamp(0.125rem, 0.1rem + 0.125vw, 0.25rem);
+  --space-1: clamp(0.25rem, 0.2rem + 0.25vw, 0.5rem);
+  --space-2: clamp(0.5rem, 0.4rem + 0.5vw, 0.75rem);
+  --space-3: clamp(0.75rem, 0.6rem + 0.75vw, 1rem);
+  --space-4: clamp(1rem, 0.8rem + 1vw, 1.5rem);
+  --space-5: clamp(1.5rem, 1.2rem + 1.5vw, 2rem);
+  --space-6: clamp(2rem, 1.5rem + 2.5vw, 3rem);
+  --space-7: clamp(3rem, 2rem + 5vw, 5rem);
+  --space-8: clamp(4rem, 3rem + 5vw, 8rem);
+  --space-9: clamp(6rem, 4rem + 10vw, 12rem);
+  --space-10: clamp(8rem, 5rem + 15vw, 16rem);
+
+  /* ============================================
+     BORDER RADIUS
+     ============================================ */
+  
+  --radius-none: 0;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-2xl: 32px;
+  --radius-3xl: 48px;
+  --radius-full: 9999px;
+
+  /* ============================================
+     SHADOWS
+     ============================================ */
+  
+  --shadow-color: 26 26 26;
+  --shadow-sm: 0 1px 2px 0 rgb(var(--shadow-color) / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(var(--shadow-color) / 0.08),
+               0 2px 4px -2px rgb(var(--shadow-color) / 0.08);
+  --shadow-lg: 0 10px 15px -3px rgb(var(--shadow-color) / 0.1),
+               0 4px 6px -4px rgb(var(--shadow-color) / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(var(--shadow-color) / 0.12),
+               0 8px 10px -6px rgb(var(--shadow-color) / 0.12);
+  --shadow-2xl: 0 25px 50px -12px rgb(var(--shadow-color) / 0.25);
+  --shadow-glow-accent: 0 0 40px -10px var(--color-accent);
+  --shadow-glow-accent-sm: 0 0 20px -5px var(--color-accent);
+
+  /* ============================================
+     ANIMATIONS
+     ============================================ */
+  
+  --ease-linear: linear;
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  
+  --duration-instant: 0ms;
+  --duration-fast: 150ms;
+  --duration-base: 300ms;
+  --duration-slow: 500ms;
+  --duration-slower: 700ms;
+  --duration-slowest: 1000ms;
+
+  /* ============================================
+     Z-INDEX SCALE
+     ============================================ */
+  
+  --z-hide: -1;
+  --z-base: 0;
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-fixed: 300;
+  --z-modal-backdrop: 400;
+  --z-modal: 500;
+  --z-popover: 600;
+  --z-tooltip: 700;
+  --z-toast: 800;
+
+  /* ============================================
+     LAYOUT
+     ============================================ */
+  
+  --max-width-xs: 20rem;
+  --max-width-sm: 24rem;
+  --max-width-md: 28rem;
+  --max-width-lg: 32rem;
+  --max-width-xl: 36rem;
+  --max-width-2xl: 42rem;
+  --max-width-3xl: 48rem;
+  --max-width-4xl: 56rem;
+  --max-width-5xl: 64rem;
+  --max-width-6xl: 72rem;
+  --max-width-7xl: 80rem;
+  --max-width-prose: 65ch;
+}
+
+/* ============================================
+   DARK MODE - Premium
+   ============================================ */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-paper: #0a0a0a;
+    --color-paper-dark: #121212;
+    --color-paper-darker: #1a1a1a;
+    --color-ink: #fbf5ee;
+    --color-ink-light: #e8dfd3;
+    --color-ink-lighter: #d4c9ba;
+    --color-accent: #c9a070;
+    --color-accent-dark: #B38B59;
+    --color-accent-light: #3d3020;
+    --color-accent-lighter: #2a2015;
+    --color-surface: #141414;
+    --color-surface-elevated: #1a1a1a;
+    --color-surface-sunken: #0d0d0d;
+    --color-line: rgba(251, 245, 238, 0.08);
+    --color-line-dark: rgba(251, 245, 238, 0.15);
+    --shadow-color: 0 0 0;
+  }
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+
+/* Glassmorphism */
+.glass {
+  background: rgba(251, 245, 238, 0.7);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+}
+
+.glass-dark {
+  background: rgba(18, 18, 18, 0.7);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, var(--color-ink) 0%, var(--color-accent-dark) 50%, var(--color-accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-gold {
+  background: linear-gradient(135deg, var(--color-accent) 0%, #d4a574 50%, var(--color-accent-dark) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Focus styles */
+.focus-ring {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--color-accent-light);
+}
+
+.focus-ring:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--color-accent-light), 0 0 0 5px var(--color-accent);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

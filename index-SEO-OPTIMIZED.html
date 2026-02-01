@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    
+    <!-- Error Display (dev only - remove in production) -->
+    <script>
+      window.onerror = function(message, source, lineno, colno, error) {
+        var div = document.createElement('div');
+        div.style.position = 'fixed';
+        div.style.top = '0';
+        div.style.left = '0';
+        div.style.width = '100%';
+        div.style.backgroundColor = 'red';
+        div.style.color = 'white';
+        div.style.padding = '20px';
+        div.style.zIndex = '9999';
+        div.style.fontSize = '14px';
+        div.style.fontFamily = 'monospace';
+        div.style.wordBreak = 'break-word';
+        div.innerHTML = '<strong>Error:</strong> ' + message + '<br>' +
+                        '<strong>Source:</strong> ' + source + ':' + lineno + '<br>' +
+                        '<strong>Stack:</strong> ' + (error ? error.stack : 'N/A');
+        document.body.appendChild(div);
+      };
+    </script>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/logo.png" />
+    <link rel="apple-touch-icon" href="/logo.png" />
+    
+    <!-- Viewport & Mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#B38B59" />
+    <meta name="msapplication-TileColor" content="#B38B59" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="I Giarratano" />
+    
+    <!-- ===== PRIMARY META TAGS SEO ===== -->
+    <title>Parrucchiere Sant'Ambrogio di Torino | I Giarratano</title>
+    <meta name="description" content="I Giarratano Parrucchieri a Sant'Ambrogio di Torino. Taglio, colore, balayage e acconciature sposa. 20+ anni di esperienza. Prenota su WhatsApp 011 939319." />
+    <meta name="keywords" content="parrucchiere Sant'Ambrogio di Torino, taglio capelli, colore capelli, balayage, acconciatura sposa, barbiere, Valle di Susa, piega capelli" />
+    <meta name="author" content="I Giarratano Parrucchieri" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.igiarratanoparrucchieri.it/" />
+    
+    <!-- Language & Region Geotargeting -->
+    <link rel="alternate" hreflang="it-it" href="https://www.igiarratanoparrucchieri.it/" />
+    <meta name="geo.region" content="IT-TO" />
+    <meta name="geo.placename" content="Sant'Ambrogio di Torino" />
+    <meta name="geo.position" content="45.0961;7.3669" />
+    <meta name="ICBM" content="45.0961, 7.3669" />
+    
+    <!-- ===== OPEN GRAPH / FACEBOOK ===== -->
+    <meta property="og:type" content="business.business" />
+    <meta property="og:url" content="https://www.igiarratanoparrucchieri.it/" />
+    <meta property="og:title" content="I Giarratano Parrucchieri | Parrucchiere Sant'Ambrogio di Torino" />
+    <meta property="og:description" content="Taglio, colore, balayage e trattamenti per capelli. 20+ anni di esperienza nella Valle di Susa. Prenota ora su WhatsApp!" />
+    <meta property="og:image" content="https://images.pexels.com/photos/3993449/pexels-photo-3993449.jpeg?auto=compress&cs=tinysrgb&w=1200" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="I Giarratano Parrucchieri - Salone a Sant'Ambrogio di Torino" />
+    <meta property="og:locale" content="it_IT" />
+    <meta property="og:site_name" content="I Giarratano Parrucchieri" />
+    
+    <!-- Facebook Business Contact Data -->
+    <meta property="business:contact_data:street_address" content="Corso Moncenisio 56/A" />
+    <meta property="business:contact_data:locality" content="Sant'Ambrogio di Torino" />
+    <meta property="business:contact_data:region" content="TO" />
+    <meta property="business:contact_data:postal_code" content="10057" />
+    <meta property="business:contact_data:country_name" content="Italy" />
+    <meta property="business:contact_data:phone_number" content="+39011939319" />
+    <meta property="business:contact_data:website" content="https://www.igiarratanoparrucchieri.it" />
+    
+    <!-- Business Hours for Facebook -->
+    <meta property="business:hours:day" content="tuesday" />
+    <meta property="business:hours:start" content="09:00" />
+    <meta property="business:hours:end" content="12:30" />
+    <meta property="business:hours:day" content="tuesday" />
+    <meta property="business:hours:start" content="14:30" />
+    <meta property="business:hours:end" content="18:30" />
+    <meta property="business:hours:day" content="wednesday" />
+    <meta property="business:hours:start" content="09:00" />
+    <meta property="business:hours:end" content="12:30" />
+    <meta property="business:hours:day" content="wednesday" />
+    <meta property="business:hours:start" content="14:30" />
+    <meta property="business:hours:end" content="18:30" />
+    <meta property="business:hours:day" content="thursday" />
+    <meta property="business:hours:start" content="09:00" />
+    <meta property="business:hours:end" content="18:30" />
+    <meta property="business:hours:day" content="friday" />
+    <meta property="business:hours:start" content="08:30" />
+    <meta property="business:hours:end" content="18:30" />
+    <meta property="business:hours:day" content="saturday" />
+    <meta property="business:hours:start" content="08:30" />
+    <meta property="business:hours:end" content="18:30" />
+    
+    <!-- ===== TWITTER CARDS ===== -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@igiarratanoparrucchieri" />
+    <meta name="twitter:creator" content="@igiarratanoparrucchieri" />
+    <meta name="twitter:url" content="https://www.igiarratanoparrucchieri.it/" />
+    <meta name="twitter:title" content="I Giarratano Parrucchieri | Parrucchiere Sant'Ambrogio di Torino" />
+    <meta name="twitter:description" content="Taglio, colore, balayage e trattamenti. 20+ anni di esperienza. Prenota su WhatsApp!" />
+    <meta name="twitter:image" content="https://images.pexels.com/photos/3993449/pexels-photo-3993449.jpeg?auto=compress&cs=tinysrgb&w=1200" />
+    <meta name="twitter:image:alt" content="I Giarratano Parrucchieri - Salone a Sant'Ambrogio di Torino" />
+    
+    <!-- ===== PRECONNECT & PRELOAD (Performance) ===== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://images.pexels.com" crossorigin>
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    
+    <!-- Preload Critical Resources -->
+    <link rel="preload" 
+          as="image" 
+          href="https://images.pexels.com/photos/3993449/pexels-photo-3993449.jpeg?auto=compress&cs=tinysrgb&w=1600" 
+          crossorigin="anonymous" />
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- ===== STRUCTURED DATA: HAIRSALON COMPLETO ===== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HairSalon",
+      "@id": "https://www.igiarratanoparrucchieri.it/#business",
+      "name": "I Giarratano Parrucchieri",
+      "alternateName": "Parrucchiere Giarratano Sant'Ambrogio",
+      "description": "Parrucchiere a Sant'Ambrogio di Torino specializzato in taglio, colore, balayage, trattamenti per capelli e acconciature sposa. 20+ anni di esperienza nella Valle di Susa.",
+      "url": "https://www.igiarratanoparrucchieri.it",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.igiarratanoparrucchieri.it/logo.png",
+        "width": 512,
+        "height": 512
+      },
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://images.pexels.com/photos/3993449/pexels-photo-3993449.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "width": 1200,
+        "height": 630
+      },
+      "telephone": "+39011939319",
+      "email": "info@igiarratanoparrucchieri.it",
+      "priceRange": "€€",
+      "currenciesAccepted": "EUR",
+      "paymentAccepted": "Contanti, Carta di credito, Bancomat",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Corso Moncenisio 56/A",
+        "addressLocality": "Sant'Ambrogio di Torino",
+        "addressRegion": "TO",
+        "postalCode": "10057",
+        "addressCountry": "IT",
+        "addressNeighborhood": "Centro storico"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "45.0961",
+        "longitude": "7.3669"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Tuesday", "Wednesday"],
+          "opens": "09:00",
+          "closes": "12:30"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Tuesday", "Wednesday"],
+          "opens": "14:30",
+          "closes": "18:30"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Thursday",
+          "opens": "09:00",
+          "closes": "18:30"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Friday",
+          "opens": "08:30",
+          "closes": "18:30"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "08:30",
+          "closes": "18:30"
+        }
+      ],
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Sant'Ambrogio di Torino",
+          "containedInPlace": {
+            "@type": "AdministrativeArea",
+            "name": "Città Metropolitana di Torino"
+          }
+        },
+        {
+          "@type": "City",
+          "name": "Avigliana"
+        },
+        {
+          "@type": "City",
+          "name": "Condove"
+        },
+        {
+          "@type": "City",
+          "name": "Susa"
+        },
+        {
+          "@type": "City",
+          "name": "Bussoleno"
+        },
+        {
+          "@type": "City",
+          "name": "Torino"
+        }
+      ],
+      "hasMap": "https://www.google.com/maps/search/?api=1&query=I+Giarratano+Parrucchieri+Sant+Ambrogio+Torino",
+      "sameAs": [
+        "https://www.instagram.com/igiarratanoparrucchieri"
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "127",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "foundingDate": "2003",
+      "founders": [
+        {
+          "@type": "Person",
+          "name": "Gianni Giarratano"
+        },
+        {
+          "@type": "Person",
+          "name": "Marianna Giarratano"
+        }
+      ],
+      "numberOfEmployees": {
+        "@type": "QuantitativeValue",
+        "value": "3"
+      },
+      "knowsLanguage": ["Italian", "English"],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Servizi Parrucchiere",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Taglio Capelli Donna",
+              "description": "Taglio personalizzato con analisi viso, lavaggio trattante e styling"
+            },
+            "price": "35",
+            "priceCurrency": "EUR"
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Colore Capelli",
+              "description": "Tinte organiche e colorazioni personalizzate"
+            },
+            "price": "40",
+            "priceCurrency": "EUR"
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Balayage",
+              "description": "Schiariture naturali con tecnica balayage francese"
+            },
+            "price": "80",
+            "priceCurrency": "EUR"
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Taglio Uomo",
+              "description": "Taglio maschile con rifinitura barba"
+            },
+            "price": "18",
+            "priceCurrency": "EUR"
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Acconciatura Sposa",
+              "description": "Acconciatura professionale per matrimoni con prova inclusa"
+            },
+            "priceSpecification": {
+              "@type": "PriceSpecification",
+              "description": "Su preventivo"
+            }
+          }
+        ]
+      }
+    }
+    </script>
+    
+    <!-- ===== STRUCTURED DATA: BREADCRUMB ===== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.igiarratanoparrucchieri.it/"
+        }
+      ]
+    }
+    </script>
+    
+    <!-- ===== STRUCTURED DATA: FAQ PAGE ===== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Dove si trova il parrucchiere I Giarratano a Sant'Ambrogio di Torino?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "I Giarratano Parrucchieri si trova in Corso Moncenisio 56/A, 10057 Sant'Ambrogio di Torino (TO), nel cuore della Valle di Susa. Facilmente raggiungibile in auto con parcheggio nelle vicinanze."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quali sono gli orari di apertura del salone?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Siamo aperti dal Martedì al Sabato: Martedì e Mercoledì 9:00-12:30 e 14:30-18:30, Giovedì 9:00-18:30, Venerdì e Sabato 8:30-18:30. Domenica e Lunedì chiusi."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Come posso prenotare un appuntamento?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Puoi prenotare chiamandoci al numero 011 939319, scrivendoci su WhatsApp cliccando sul pulsante verde sul sito, o passando direttamente in salone. Per le spose consigliamo di prenotare con almeno 2 mesi di anticipo."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quanto costa un taglio capelli da I Giarratano?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Il taglio donna con piega parte da 35€, il taglio uomo da 18€. Il balayage parte da 80€ mentre la colorazione da 40€. Prezzi indicativi, possono variare in base alla lunghezza e alle condizioni dei capelli."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Fate acconciature per matrimoni?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sì, siamo specializzati in acconciature sposa nella zona di Sant'Ambrogio e Torino. Offriamo consulenza personalizzata, prove acconciatura e assistenza il giorno del matrimonio. Gli appuntamenti sono limitati per garantire la massima attenzione."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Che prodotti utilizzate per i trattamenti?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Utilizziamo esclusivamente prodotti professionali di alta qualità, tra cui Wella Professionals per la colorazione. Per i trattamenti di ricostruzione e idratazione selezioniamo i migliori brand del settore."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quanto tempo prima devo prenotare per un balayage?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Per un servizio come il balayage che richiede 2-3 ore, consigliamo di prenotare almeno 1 settimana prima. Per il sabato e i giorni festivi, è preferibile prenotare con 2 settimane di anticipo."
+          }
+        }
+      ]
+    }
+    </script>
+    
+    <!-- ===== STRUCTURED DATA: WEBPAGE ===== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "@id": "https://www.igiarratanoparrucchieri.it/#webpage",
+      "url": "https://www.igiarratanoparrucchieri.it/",
+      "name": "Parrucchiere Sant'Ambrogio di Torino | I Giarratano",
+      "description": "I Giarratano Parrucchieri a Sant'Ambrogio di Torino. Taglio, colore, balayage e acconciature sposa. 20+ anni di esperienza.",
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://www.igiarratanoparrucchieri.it/#website",
+        "url": "https://www.igiarratanoparrucchieri.it/",
+        "name": "I Giarratano Parrucchieri",
+        "publisher": {
+          "@id": "https://www.igiarratanoparrucchieri.it/#business"
+        }
+      },
+      "about": {
+        "@id": "https://www.igiarratanoparrucchieri.it/#business"
+      },
+      "datePublished": "2023-01-01",
+      "dateModified": "2025-02-01"
+    }
+    </script>
+    
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

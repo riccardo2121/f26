@@ -6,6 +6,8 @@ import { GallerySection } from "../components/GallerySection";
 import { TeamSection } from "../components/TeamSection";
 import { PricesSection } from "../components/PricesSection";
 import { HowItWorksSection } from "../components/HowItWorksSection";
+import { TestimonialsSection } from "../components/TestimonialsSection";
+import { CompactReviewsSection } from "../components/CompactReviewsSection";
 
 export const Home = () => {
   const { hash } = useLocation();
@@ -50,6 +52,8 @@ export const Home = () => {
       <GallerySection />
 
       <PricesSection />
+
+      <TestimonialsSection />
 
       <TeamSection />
 
